@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Zero Store</title>
+    <style>
+        :root {
+            --primary: #1e1e1e;
+            --secondary: #ff9800;
+            --text: #ffffff;
+            --bg: #121212;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Efek animasi awal (sembunyi dulu) */
+        .hidden {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease;
+        }
+
+        /* Saat muncul di layar */
+        .show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .header {
+            text-align: center;
+            padding: 20px;
+            background: var(--primary);
+        }
+
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 3px solid var(--secondary);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .subtitle {
+            color: #bbb;
+            font-size: 0.9rem;
+        }
+
+        .about {
+            background: #1e1e1e;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .about h2 {
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+
+        .about img {
+            width: 100%;
+            border-radius: 12px;
+            margin-bottom: 15px;
+        }
+
+        .about p {
+            line-height: 1.5;
+            color: #ddd;
+        }
+
+        .highlight {
+            color: var(--secondary);
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <div class="header hidden">
+        <img src="anime.jpg" alt="Foto Profil" class="profile-pic">
+        <div class="logo">PAYMENT ZERO STORE ⚡</div>
+        <div class="subtitle">Gerbang Pembayaran Cepat dan Aman</div>
+    </div>
+
+    <!-- TENTANG PEMILIK -->
+    <div class="about hidden">
+        <h2>Tentang Pemilik</h2>
+        <img src="anime.jpg" alt="Foto Anime">
+        <p><span class="highlight">Nama:</span> Ren Arisaka</p>
+        <p><span class="highlight">Usia:</span> 18 tahun</p>
+        <p><span class="highlight">Kepribadian:</span> Pendiam, pemikir, sedikit melankolis namun memiliki hati yang hangat.</p>
+        <p><span class="highlight">Latar Belakang:</span> Sering merenung di bawah langit malam. Pernah kehilangan seseorang yang berarti, membuatnya mencari jawaban dalam keheningan.</p>
+        <p><span class="highlight">Kebiasaan:</span> Berjalan sendirian di malam hari, mendengarkan musik pelan, dan memandangi bintang.</p>
+    </div>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        }, { threshold: 0.2 });
+
+        document.querySelectorAll('.hidden').forEach(el => observer.observe(el));
+    </script>
+
+</body>
+</html>
